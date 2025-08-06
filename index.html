@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sports Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: #fff;
+      padding: 30px;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    button {
+      background: #fff;
+      color: #2193b0;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #eee;
+    }
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏆 Sports Quiz</h1>
+  <div class="quiz-container">
+    <form id="quizForm">
+      <!-- Questions Start -->
+      <!-- Format: questionText|CorrectAnswer -->
+
+      <!-- Question 1 -->
+      <div class="question">
+        <p>1. Which country has won the most FIFA World Cup titles in football?</p>
+        <label><input type="radio" name="q1" value="A"> A) Germany</label>
+        <label><input type="radio" name="q1" value="B"> B) Brazil</label>
+        <label><input type="radio" name="q1" value="C"> C) Argentina</label>
+        <label><input type="radio" name="q1" value="D"> D) France</label>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. What is the national sport of Japan?</p>
+        <label><input type="radio" name="q2" value="A"> A) Karate</label>
+        <label><input type="radio" name="q2" value="B"> B) Judo</label>
+        <label><input type="radio" name="q2" value="C"> C) Sumo Wrestling</label>
+        <label><input type="radio" name="q2" value="D"> D) Kendo</label>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <p>3. Who holds the record for the most Olympic gold medals?</p>
+        <label><input type="radio" name="q3" value="A"> A) Usain Bolt</label>
+        <label><input type="radio" name="q3" value="B"> B) Larisa Latynina</label>
+        <label><input type="radio" name="q3" value="C"> C) Michael Phelps</label>
+        <label><input type="radio" name="q3" value="D"> D) Carl Lewis</label>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <p>4. How many players are there in a standard basketball team on the court?</p>
+        <label><input type="radio" name="q4" value="A"> A) 6</label>
+        <label><input type="radio" name="q4" value="B"> B) 5</label>
+        <label><input type="radio" name="q4" value="C"> C) 4</label>
+        <label><input type="radio" name="q4" value="D"> D) 7</label>
+      </div>
+
+      <!-- You can paste remaining 16 questions here using same format -->
+
+      <!-- Submit Button -->
+      <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const correctAnswers = {
+      q1: "B",
+      q2: "C",
+      q3: "C",
+      q4: "B",
+      q5: "B",
+      q6: "B",
+      q7: "B",
+      q8: "B",
+      q9: "A",
+      q10: "A",
+      q11: "B",
+      q12: "A",
+      q13: "B",
+      q14: "C",
+      q15: "A",
+      q16: "B",
+      q17: "C",
+      q18: "A",
+      q19: "C",
+      q20: "B"
+    };
+
+    function checkAnswers() {
+      let score = 0;
+      for (let i = 1; i <= 20; i++) {
+        const q = document.querySelector(`input[name="q${i}"]:checked`);
+        if (q && q.value === correctAnswers[`q${i}`]) {
+          score++;
+        }
+      }
+      document.getElementById("result").innerText = `✅ Your Score: ${score}/20`;
+    }
+  </script>
+
+</body>
+</html>
